@@ -2,9 +2,10 @@ package No15_syc;
 
 public class TestTicket {
     public static void main(String[] args) {
-        Ticket ticket = new Ticket(100);
-        for(int i = 1;i <= 5;i++) {
-            new Thread(new TicketSeller(ticket)).start();
-        }
+        Ticket ticket = new Ticket();
+        new Thread(ticket,"1").start();
+        new Thread(ticket,"2").start();
+        new Thread(ticket,"3").start();
+        new Thread(ticket,"4").start();
     }
 }

@@ -7,18 +7,13 @@ public class Take implements Runnable{
     public Take(Account account) {
         this.account = account;
     }
-    //存钱方法
-    public synchronized void deposit(Account account){
-        //1000-5000元
-        int money = (int)(4000 *Math.random()+1000);
-        account.setBalance(account.getBalance()-money);
-        System.out.println("已取出"+money+"账户余额"+account.getBalance());
-    }
 
     @Override
     public void run() {
-        for (int i = 0; i < 3; i++) {
-            this.deposit(account);
+        for (int i = 0; i < 5; i++) {
+            int money = (int)(500 *Math.random()+500);
+            account.get(money);
+
             try {
                 Thread.sleep((int)Math.random()*100);
             } catch (InterruptedException e) {

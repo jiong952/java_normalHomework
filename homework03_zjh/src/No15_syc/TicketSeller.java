@@ -1,6 +1,6 @@
 package No15_syc;
 
-public class TicketSeller implements Runnable{
+public class TicketSeller extends Thread{
     private Ticket ticket;
 
     public TicketSeller(Ticket ticket) {
@@ -10,11 +10,8 @@ public class TicketSeller implements Runnable{
     @Override
     public void run() {
         //如果有票就一直卖
-        ticket.sell();
-        try {
-            Thread.sleep((int)Math.random()*100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (Ticket.tic_number > 0){
+            ticket.sell();
         }
 }
 
